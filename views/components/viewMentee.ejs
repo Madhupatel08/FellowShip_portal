@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#!">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/mentor/">Mentor Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentor/add-test">Add Test</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/mentor/add-webinar">Add Sessions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentor/attendance">Attendance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentor/view-mentee">View Mentee Details</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentor/grade-student">Grade Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentor/grades">View Grades</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1>The View Mentee Page</h1>
+    <table>
+        <thead>
+            <th>Username</th>
+            <th>Password</th>
+        </thead>
+        <tbody>
+            <% Mentees.forEach((mentee)=>{%>
+                <% if(mentee.mentor == Mentor_name) { %>
+                <tr>
+                    <td><%= mentee.username %></td>
+                    <td><%= mentee.password %></td>
+                </tr>
+                <% } %>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

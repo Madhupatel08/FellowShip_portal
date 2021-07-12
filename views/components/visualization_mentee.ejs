@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/styles.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- / navbar  starts/ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#!">lali-Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">To/Do</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Webinars</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /nav bar end/ -->
+     <div class="container" style="align-items:center;"> 
+      <!-- single canvas node to render the chart -->
+      <canvas
+        id="myChart"
+        width="500"
+        height="500"
+        aria-label="chart"
+        role="img"
+      ></canvas>
+    </div> 
+
+
+     <!-- footer  starts -->
+     <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+    </footer> 
+     <!-- footer  ends -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var labels = JSON.parse('<%- labels %>');
+      var data = JSON.parse('<%- data %>');
+var myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels : labels,
+            datasets:[
+                {
+                    data: data,
+                    label:"Grades",
+                    borderColor:["black"],
+                    backgroundColor:["red","green","yellow"],
+                    borderWidth:1,
+                },
+        ],
+    },
+    options: {
+        responsive: false,
+        layout:{
+            padding:{
+                left:50,
+                right:0,
+                top:50,
+            },
+        },
+        tooltips:{
+            enabled: true, // Enable/Disable ToolTip By Default Its True
+            backgroundColor: "grey", // Set Tooltip Background Color
+            titleFontFamily: "Comic Sans MS", // Set Tooltip Title Font Family
+            titleFontSize: 30, // Set Tooltip Font Size
+            titleFontStyle: "bold italic",
+            titleFontColor: "yellow",
+            titleAlign: "center",
+            titleSpacing: 3,
+            titleMarginBottom: 50,
+            bodyFontFamily: "Comic Sans MS",
+            bodyFontSize: 20,
+            bodyFontStyle: "italic",
+            bodyFontColor: "black",
+            bodyAlign: "center",
+            bodySpacing: 3,
+        },
+        animation: {
+            duration: 5000,
+            easing: "easeInOutBounce",
+        },
+    }, 
+});
+    </script>
+  </body>
+</html>

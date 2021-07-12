@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link href="../../css/managerStyles.css" rel="stylesheet" />
+    <link href="../../css/style1.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <!-- / navbar  starts/ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#!">LAALI FELLOWSHIP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link " aria-current="page" href="/manager/view-mentors">View Mentors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/manager/add-organisation">Add Organisation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/manager/assign-mentors">Assign Mentors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/manager/view-feedback">Mentor feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/manager/visualization">View Attendance Status</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /nav bar end/ -->
+    <div class="row container" style="padding:0;margin:0;">
+    <div class=" col-md-6 " style="align-items:center;"> 
+        <!-- single canvas node to render the chart -->
+        <canvas
+        id="myChart"
+        width="500"
+        height="500"
+        aria-label="chart"
+        role="img"
+        style="margin:0 auto"
+        ></canvas>
+    </div> 
+    <div class="col-md-6" style="align-items:center;"> 
+        <!-- single canvas node to render the chart -->
+        <canvas
+        id="myChart2"
+        width="500"
+        height="500"
+        aria-label="chart"
+        role="img"
+        style="margin:0 auto"
+        ></canvas>
+    </div> 
+</div>
+    
+    <!-- footer  starts -->
+    <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+    </footer> 
+    <!-- footer  ends -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        var labels1 = JSON.parse('<%- labels1 %>');
+        var data1 = JSON.parse('<%- data1 %>');
+        var labels2 = JSON.parse('<%- labels2 %>');
+        var data2 = JSON.parse('<%- data2 %>');
+        var myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels : labels1,
+                datasets:[
+                {
+                    data: data1,
+                    label:"Mentee Attendance",
+                    borderColor:["black"],
+                    backgroundColor:["red","green","yellow"],
+                    borderWidth:1,
+                },
+                ],
+            },
+            options: {
+                responsive: false,
+                layout:{
+                    padding:{
+                        left:50,
+                        right:0,
+                        top:50,
+                    },
+                },
+                tooltips:{
+                    enabled: true, // Enable/Disable ToolTip By Default Its True
+                    backgroundColor: "grey", // Set Tooltip Background Color
+                    titleFontFamily: "Comic Sans MS", // Set Tooltip Title Font Family
+                    titleFontSize: 30, // Set Tooltip Font Size
+                    titleFontStyle: "bold italic",
+                    titleFontColor: "yellow",
+                    titleAlign: "center",
+                    titleSpacing: 3,
+                    titleMarginBottom: 50,
+                    bodyFontFamily: "Comic Sans MS",
+                    bodyFontSize: 20,
+                    bodyFontStyle: "italic",
+                    bodyFontColor: "black",
+                    bodyAlign: "center",
+                    bodySpacing: 3,
+                },
+                animation: {
+                    duration: 5000,
+                    easing: "easeInOutBounce",
+                },
+            }, 
+        });
+        var myChart2 = new Chart(ctx2, {
+            type: "bar",
+            data: {
+                labels : labels2,
+                datasets:[
+                {
+                    data: data2,
+                    label:"Mentor Attendance",
+                    borderColor:["black"],
+                    backgroundColor:["blue","pink","violet"],
+                    borderWidth:1,
+                },
+                ],
+            },
+            options: {
+                responsive: false,
+                layout:{
+                    padding:{
+                        left:50,
+                        right:0,
+                        top:50,
+                    },
+                },
+                tooltips:{
+                    enabled: true, // Enable/Disable ToolTip By Default Its True
+                    backgroundColor: "grey", // Set Tooltip Background Color
+                    titleFontFamily: "Comic Sans MS", // Set Tooltip Title Font Family
+                    titleFontSize: 30, // Set Tooltip Font Size
+                    titleFontStyle: "bold italic",
+                    titleFontColor: "yellow",
+                    titleAlign: "center",
+                    titleSpacing: 3,
+                    titleMarginBottom: 50,
+                    bodyFontFamily: "Comic Sans MS",
+                    bodyFontSize: 20,
+                    bodyFontStyle: "italic",
+                    bodyFontColor: "black",
+                    bodyAlign: "center",
+                    bodySpacing: 3,
+                },
+                animation: {
+                    duration: 5000,
+                    easing: "easeInOutBounce",
+                },
+            }, 
+        });
+    </script>
+</body>
+</html>
