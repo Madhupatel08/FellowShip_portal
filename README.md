@@ -1,9 +1,10 @@
 Link : https://fellowship-portal.herokuapp.com/
 
-.  Created an organizational management system to track and monitor mentor, mentee etc.
-• It also uses Twilio to send messages to all of the registered phone numbers.
-• Node, EJS, express, MongoDB, and HTML-CSS/Bootstrap were used in the development.
-IMPACT: Implemented an academic tool to monitor their productivity of mentor, mentee, Program manager
+- Developed during the JPMC hackathon.
+- It is an organizational management system to track and monitor Mentor, Mentee, and Program Manager's progress. 
+- Used Twilio to send messages to all of the registered phone numbers.
+- Tech Stacks - Node, EJS, Express, MongoDB, and HTML-CSS/Bootstrap 
+Impact: Implemented an academic tool to monitor the productivity of mentor, mentee, and Program manager
 
 
 How to start the Project->
@@ -73,3 +74,6 @@ Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
 ## Simple build for production
 
     $ yarn build
+
+## 
+![image](https://user-images.githubusercontent.com/54492585/222405279-e51def95-0c74-4f9a-b2fa-9b673efb34d9.png)
